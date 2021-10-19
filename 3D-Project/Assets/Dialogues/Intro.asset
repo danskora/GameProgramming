@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70a558f370db0c49b23d52d0dd0f754, type: 3}
+  m_Name: Intro
+  m_EditorClassIdentifier: 
+  NPCAvatar: {fileID: 2800000, guid: 90e7702543612954eb47aff194d19a55, type: 3}
+  DialogueSlides:
+  - Welcome to the bazaar!
+  - I hope you came hungry.
+  - We have plenty of fruit to give away.
+  - Just make sure to choose the right one...
