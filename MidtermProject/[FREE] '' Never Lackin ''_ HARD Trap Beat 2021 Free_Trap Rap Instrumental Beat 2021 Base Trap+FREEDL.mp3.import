@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/[FREE] '' Never Lackin ''_ HARD Trap Beat 2021 Free_Trap Rap Instrumental Beat 2021 Base Trap+FREEDL.mp3-1bc363138e89f8d7aa6d48cff923c092.mp3str"
+
+[deps]
+
+source_file="res://[FREE] '' Never Lackin ''_ HARD Trap Beat 2021 Free_Trap Rap Instrumental Beat 2021 Base Trap+FREEDL.mp3"
+dest_files=[ "res://.import/[FREE] '' Never Lackin ''_ HARD Trap Beat 2021 Free_Trap Rap Instrumental Beat 2021 Base Trap+FREEDL.mp3-1bc363138e89f8d7aa6d48cff923c092.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

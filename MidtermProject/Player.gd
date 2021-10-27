@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func player_process():
 	if(Input.is_action_just_pressed("place")):
 		var x = get_global_mouse_position().x
 		if(196<x && x<827):

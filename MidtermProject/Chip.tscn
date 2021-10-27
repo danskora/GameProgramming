@@ -3,6 +3,6 @@
 [ext_resource path="res://50337-inner-grey-images.png" type="Texture" id=1]
 
 [node name="Chip" type="Sprite"]
-position = Vector2( -269, 200 )
+position = Vector2( -270, 201 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
