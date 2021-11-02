@@ -5,12 +5,14 @@ export var _chip: PackedScene
 var turn
 var winner
 var board
+var turns_played
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	turn = 0
 	winner = 2
+	turns_played = 0
 	board = [[],[],[],[],[],[],[]]
 	for c in range(7):
 		for _x in range(6):
@@ -20,9 +22,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	#if $AudioStreamPlayer.playing == false:
-		#$AudioStreamPlayer.play()
-			
 	if winner == 2:
 		if turn == 0:
 			self.get_parent().get_node("Player").player_process()
@@ -34,12 +33,15 @@ func place_chip(c):
 	for r in range(6):
 		if col[r] == 2:
 			col[r] = turn
+			turns_played += 1
 			disp_chip(c, r)
 			if check_winner():
 				if winner == 0:
 					$OutcomeMessage.set_bbcode("[center]Player Wins![/center]")
-				else:
+				elif winner == 1:
 					$OutcomeMessage.set_bbcode("[center]AI Wins![/center]")
+				else:
+					$OutcomeMessage.set_bbcode("[center]Tie Game![/center]")
 			turn = (turn+1)%2
 			return
 
@@ -53,7 +55,20 @@ func disp_chip(col, row):
 		new_chip.modulate = Color(100,1,1)
 	add_child(new_chip)
 
-func check_winner():
+
+func get_board():
+	var clone = []
+	var original_col
+	var clone_col
+	for c in range(7):
+		original_col = board[c]
+		clone_col = []
+		for r in range(6):
+			clone_col.append(original_col[r])
+		clone.append(clone_col)
+	return clone
+
+func check_winner():  # could be faster if I only checked the just-placed chip
 	var n
 	var failed
 	for c in range(0,4,1):
@@ -131,4 +146,7 @@ func check_winner():
 					winner = turn
 					return true
 				
+	if turns_played == 42:
+		winner = 3
+		return true
 	return false
