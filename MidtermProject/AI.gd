@@ -32,7 +32,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func ai_process():
 	var game_state = self.get_parent().get_node("GameState")
-	game_state.place_chip(best_move(game_state.get_board(), 2))
+	game_state.place_chip(best_move(game_state.get_board(), 3))
 
 func best_move(matrix, depth):  # minimax algorithm
 	var tree = generate_tree(matrix, depth * 2)

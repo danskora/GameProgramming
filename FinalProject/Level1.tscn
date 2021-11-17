@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Dan.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Paul.tscn" type="PackedScene" id=3]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Paul" parent="." instance=ExtResource( 3 )]
+position = Vector2( 250.039, 385.464 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 65539, 0, 4, 65542, 0, 4, 131082, 0, 6, 131083, 0, 8, 131084, 0, 8, 131085, 0, 65536, 262159, 0, 1, 327695, 0, 65544, 458752, 0, 3, 458754, 0, 1, 458755, 0, 458753, 458756, 0, 458757, 458757, 0, 458752, 458758, 0, 458756, 458759, 0, 2, 458760, 0, 2, 458761, 0, 3, 458766, 0, 0, 524288, 0, 65543, 524290, 0, 65539, 524291, 0, 65540, 524292, 0, 65541, 524293, 0, 65541, 524294, 0, 65541, 524295, 0, 65541, 524296, 0, 65542, 524297, 0, 65543, 524302, 0, 5, 589824, 0, 65543, 589826, 0, 65539, 589827, 0, 131077, 589828, 0, 131078, 589829, 0, 131078, 589830, 0, 131078, 589831, 0, 131078, 589832, 0, 131079, 589833, 0, 65543, 589838, 0, 5 )
+
+[node name="Dan" parent="." instance=ExtResource( 2 )]
+position = Vector2( 471.939, 376.607 )
