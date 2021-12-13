@@ -1,18 +1,114 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Dan.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Paul.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MultiTargetCamera.gd" type="Script" id=4]
+[ext_resource path="res://Characters.gd" type="Script" id=5]
+[ext_resource path="res://ASSETS/parallax background/plx-2.png" type="Texture" id=6]
+[ext_resource path="res://ASSETS/parallax background/plx-3.png" type="Texture" id=7]
+[ext_resource path="res://ASSETS/parallax background/plx-5.png" type="Texture" id=8]
+[ext_resource path="res://ASSETS/parallax background/plx-4.png" type="Texture" id=9]
+[ext_resource path="res://Velociraptor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://SceneTransition.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ParallaxBackground.gd" type="Script" id=12]
+[ext_resource path="res://ParallaxLayer.gd" type="Script" id=13]
+[ext_resource path="res://parallaxlayer.gd" type="Script" id=14]
+[ext_resource path="res://ASSETS/Gate.png" type="Texture" id=15]
+[ext_resource path="res://EndGate.gd" type="Script" id=16]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.2376, 20.684 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1961.48, 30.8279 )
 
 [node name="Level1" type="Node2D"]
 
-[node name="Paul" parent="." instance=ExtResource( 3 )]
-position = Vector2( 250.039, 385.464 )
+[node name="Fundamentals" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="ParallaxBackground" type="Node2D" parent="Fundamentals"]
+script = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="Fundamentals/ParallaxBackground"]
+texture = ExtResource( 6 )
+script = ExtResource( 13 )
+depth = 1000
+
+[node name="Sprite2" type="Sprite" parent="Fundamentals/ParallaxBackground"]
+texture = ExtResource( 7 )
+script = ExtResource( 13 )
+depth = 800
+
+[node name="Sprite3" type="Sprite" parent="Fundamentals/ParallaxBackground"]
+texture = ExtResource( 9 )
+script = ExtResource( 14 )
+depth = 500
+
+[node name="Sprite4" type="Sprite" parent="Fundamentals/ParallaxBackground"]
+texture = ExtResource( 8 )
+script = ExtResource( 14 )
+depth = 300
+
+[node name="EndGate" type="Area2D" parent="Fundamentals"]
+position = Vector2( 1952.99, 62.6762 )
+scale = Vector2( 4, 4 )
+collision_layer = 16
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Fundamentals/EndGate"]
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fundamentals/EndGate"]
+shape = SubResource( 2 )
+
+[node name="Dan" parent="Fundamentals" instance=ExtResource( 2 )]
+position = Vector2( 475, 400 )
+
+[node name="Paul" parent="Fundamentals" instance=ExtResource( 3 )]
+position = Vector2( 250.039, 400 )
+
+[node name="MultiTargetCamera" type="Camera2D" parent="Fundamentals"]
+current = true
+limit_left = -128
+limit_top = -500
+limit_right = 2200
+limit_bottom = 600
+editor_draw_limits = true
+script = ExtResource( 4 )
+
+[node name="SceneTransition" parent="Fundamentals" instance=ExtResource( 11 )]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 65539, 0, 4, 65542, 0, 4, 131082, 0, 6, 131083, 0, 8, 131084, 0, 8, 131085, 0, 65536, 262159, 0, 1, 327695, 0, 65544, 458752, 0, 3, 458754, 0, 1, 458755, 0, 458753, 458756, 0, 458757, 458757, 0, 458752, 458758, 0, 458756, 458759, 0, 2, 458760, 0, 2, 458761, 0, 3, 458766, 0, 0, 524288, 0, 65543, 524290, 0, 65539, 524291, 0, 65540, 524292, 0, 65541, 524293, 0, 65541, 524294, 0, 65541, 524295, 0, 65541, 524296, 0, 65542, 524297, 0, 65543, 524302, 0, 5, 589824, 0, 65543, 589826, 0, 65539, 589827, 0, 131077, 589828, 0, 131078, 589829, 0, 131078, 589830, 0, 131078, 589831, 0, 131078, 589832, 0, 131079, 589833, 0, 65543, 589838, 0, 5 )
+tile_data = PoolIntArray( -786435, 0, 131078, -720899, 0, 131078, -655363, 0, 131078, -589827, 0, 131078, -524291, 0, 131078, -458755, 0, 131078, -524266, 0, 65539, -524265, 0, 196612, -524264, 0, 196613, -524263, 0, 196613, -524262, 0, 196614, -524261, 0, 65543, -393219, 0, 131078, -458730, 0, 65544, -458729, 0, 196616, -458728, 0, 196616, -458727, 0, 196616, -458726, 0, 196616, -458725, 0, 65545, -327683, 0, 131078, -393194, 1, 0, -393191, 1, 0, -393190, 1, 0, -262147, 0, 131078, -327675, 0, 1, -327674, 0, 3, -327658, 1, 0, -327655, 1, 0, -327654, 1, 0, -196611, 0, 131078, -262140, 0, 1, -262139, 0, 327681, -262138, 0, 327682, -262137, 0, 3, -262119, 1, 0, -262118, 1, 0, -131075, 0, 131078, -196604, 0, 65544, -196603, 0, 262152, -196602, 0, 262151, -196601, 0, 65545, -196583, 1, 0, -65539, 0, 131078, -131067, 0, 65544, -131066, 0, 65545, -131047, 1, 0, -3, 0, 131078, -1, 0, 6, -65536, 0, 8, -65535, 0, 65536, -65515, 0, 1, -65511, 1, 0, 65533, 0, 131078, 25, 1, 0, 131069, 0, 131078, 65542, 0, 4, 196605, 0, 131078, 131077, 0, 4, 131082, 0, 6, 131083, 0, 8, 131084, 0, 8, 131085, 0, 65536, 131100, 0, 6, 131101, 0, 8, 131102, 0, 8, 131103, 0, 8, 131104, 0, 65536, 262141, 0, 131078, 196623, 0, 1, 196624, 0, 2, 196625, 0, 2, 196626, 0, 2, 196627, 0, 2, 196628, 0, 3, 327677, 0, 131078, 262159, 0, 65544, 262160, 0, 196616, 262161, 0, 196616, 262162, 0, 196616, 262163, 0, 196616, 262164, 0, 65545, 393213, 0, 131078, 458749, 0, 131078, 393240, 0, 6, 393241, 0, 8, 393242, 0, 8, 393243, 0, 65536, 524286, 0, 2, 524287, 0, 2, 458752, 0, 3, 458754, 0, 1, 458755, 0, 458753, 458756, 0, 458757, 458757, 0, 458752, 458758, 0, 458756, 458759, 0, 2, 458760, 0, 2, 458761, 0, 3, 458763, 0, 0, 458766, 0, 0, 589822, 0, 65541, 589823, 0, 65542, 524288, 0, 65543, 524290, 0, 65539, 524291, 0, 65540, 524292, 0, 65541, 524293, 0, 65541, 524294, 0, 65541, 524295, 0, 65541, 524296, 0, 65542, 524297, 0, 65543, 524302, 0, 5, 655358, 0, 131078, 655359, 0, 131079, 589824, 0, 65543, 589826, 0, 65539, 589827, 0, 131077, 589828, 0, 131078, 589829, 0, 131078, 589830, 0, 131078, 589831, 0, 131078, 589832, 0, 131079, 589833, 0, 65543, 589838, 0, 5 )
 
-[node name="Dan" parent="." instance=ExtResource( 2 )]
-position = Vector2( 471.939, 376.607 )
+[node name="FallZone" type="Area2D" parent="."]
+position = Vector2( 1546.6, 751.517 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
+shape = SubResource( 1 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Velociraptor" parent="Enemies" instance=ExtResource( 10 )]
+position = Vector2( 1187.06, 80.6102 )
+direction = -1
+
+[node name="Velociraptor2" parent="Enemies" instance=ExtResource( 10 )]
+position = Vector2( 705.277, -4.50653 )
+
+[connection signal="body_entered" from="Fundamentals/EndGate" to="Fundamentals/EndGate" method="_on_EndGate_body_entered"]
+[connection signal="body_entered" from="FallZone" to="Fundamentals/SceneTransition" method="_on_FallZone_body_entered"]

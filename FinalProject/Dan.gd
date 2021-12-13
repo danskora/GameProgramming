@@ -4,7 +4,8 @@ extends KinematicBody2D
 
 var velocity = Vector2(0,0)
 const SPEED = 180
-const GRAVITY = 35
+const GRAVITY = 1800
+const JUMPFORCE = -1100
 
 func _physics_process(delta):
 	if Input.is_action_pressed("dan_right"):
@@ -21,8 +22,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		$Sprite.play("air")
 	
+	if Input.is_action_just_pressed("dan_jump") and is_on_floor():
+		velocity.y = JUMPFORCE
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	velocity.x = lerp(velocity.x, 0, 0.2)
-	velocity.y = velocity.y + GRAVITY
+	velocity.y = velocity.y + GRAVITY * delta

@@ -19,13 +19,13 @@ animations = [ {
 "name": "air",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "climb",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 } ]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://EndScreen.gd" type="Script" id=1]
+
+[node name="EndScreen" type="RichTextLabel"]
+margin_top = 130.0
+margin_right = 205.0
+margin_bottom = 204.0
+rect_scale = Vector2( 5, 5 )
+bbcode_enabled = true
+bbcode_text = "[center]YOU WIN!!!
+CLICK ANYWHERE TO PLAY AGAIN.   :)[/center]"
+text = "YOU WIN!!!
+CLICK ANYWHERE TO PLAY AGAIN.   :)"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

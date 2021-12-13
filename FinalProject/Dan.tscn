@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://paul_spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://dan_spriteframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Dan.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -8,12 +8,11 @@ radius = 27.1176
 height = 12.6288
 
 [node name="Dan" type="KinematicBody2D"]
+collision_mask = 11
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 17 )
 frames = ExtResource( 1 )
 animation = "idle"
 playing = true
