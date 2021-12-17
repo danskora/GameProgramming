@@ -5,6 +5,8 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     float _rotationSpeed = 180f;
+
+    [SerializeField] GameObject _parentQuiz;
     [SerializeField] RuntimeData _runtimeData;
 
     // Start is called before the first frame update
@@ -35,5 +37,15 @@ public class Food : MonoBehaviour
     {
         transform.Find("Spot Light").gameObject.SetActive(false);
         _runtimeData.CurrentFoodMousedOver = "";
+    }
+
+    void OnMouseDown()
+    {
+        if (_runtimeData.CurrentGameplayState == GameplayState.FreeWalk)
+        {
+            StartCoroutine(_parentQuiz.GetComponent<FoodQuiz>().FoodSelected(gameObject));
+            _runtimeData.CurrentFoodMousedOver = "";
+        }
+
     }
 }

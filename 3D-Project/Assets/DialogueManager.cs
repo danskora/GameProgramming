@@ -21,7 +21,9 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _runtimeData.CurrentGameplayState = GameplayState.InDialogue;
+        ShowSlide();
+        LoadAvatar();
     }
 
     // Update is called once per frame
@@ -48,6 +50,7 @@ public class DialogueManager : MonoBehaviour
         ShowSlide();
         LoadAvatar();
         GetComponent<Canvas>().enabled = true;
+        _runtimeData.CurrentGameplayState = GameplayState.InDialogue;
     }
 
     void OnDialogueFinished(object sender, EventArgs args)

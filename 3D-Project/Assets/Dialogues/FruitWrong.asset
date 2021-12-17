@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70a558f370db0c49b23d52d0dd0f754, type: 3}
   m_Name: FruitWrong
   m_EditorClassIdentifier: 
-  NPCAvatar: {fileID: 0}
-  DialogueSlides: []
+  NPCAvatar: {fileID: 2800000, guid: 69719cf199789164ab59bc233a3759f3, type: 3}
+  DialogueSlides:
+  - You chose...
+  - Poorly!

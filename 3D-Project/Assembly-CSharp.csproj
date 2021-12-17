@@ -56,13 +56,16 @@
     <Compile Include="Assets\GameEvents.cs" />
     <Compile Include="Assets\Enums.cs" />
     <Compile Include="Assets\FoodLabel.cs" />
+    <Compile Include="Assets\FoodQuiz.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\DialogueManager.cs" />
     <Compile Include="Assets\Dialogue.cs" />
     <Compile Include="Assets\Food.cs" />
     <Compile Include="Assets\RuntimeData.cs" />
     <Compile Include="Assets\Initializer.cs" />
-    <Compile Include="Assets\FoodQuiz.cs" />
+    <Compile Include="Assets\AppleTree.cs" />
+    <Compile Include="Assets\Apple.cs" />
+    <Compile Include="Assets\Inventory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -11,6 +11,7 @@ public class Initializer : MonoBehaviour
     {
         _runtimeData.CurrentFoodMousedOver = "";
         _runtimeData.CurrentGameplayState = GameplayState.InDialogue;
+        _runtimeData.apples = 0;
     }
 
     private void Start()
